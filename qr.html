@@ -3,94 +3,86 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Menu QR Poster</title>
+  <title>Janet Coker Hubs QR Poster</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #fbeef3; --ink: #3b1d30; --muted: #8c6c7f; --hero-accent: #ffc8da;
-      --card: linear-gradient(155deg, #5e1f47 0%, #9b3a6c 55%, #d0779f 100%); --card-ink: #fff5f8; --line: #f0d6e0;
-      --serif: "Cormorant Garamond", Georgia, serif; --sans: "Jost", system-ui, sans-serif;
+      --bg: #fff8fa; --ink: #35182b; --muted: #85677a; --line: #f0dbe4;
+      --card: #6b1f4e; --card-ink: #fff4f8; --card-accent: #ffbfd6;
+      --display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+      --body: "Albert Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
     }
     * { box-sizing: border-box; }
-    body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); }
+    h1, p { margin: 0; }
     .controls {
-      max-width: 520px; margin: 0 auto; padding: 24px 16px 0;
+      max-width: 420px; margin: 0 auto; padding: 24px 16px 0;
       display: grid; gap: 10px;
     }
-    .controls label { font-size: 13px; font-weight: 500; color: var(--muted); }
+    .controls label { font-size: 13px; font-weight: 600; }
     .controls .row { display: flex; gap: 8px; }
     .controls input {
       flex: 1; min-width: 0; height: 44px; padding: 0 14px; font: inherit; font-size: 15px;
       border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink);
     }
+    .controls input:focus { outline: 2px solid var(--card); outline-offset: 1px; }
     .controls button {
-      height: 44px; padding: 0 18px; font: inherit; font-weight: 500; cursor: pointer;
-      border: 0; border-radius: 10px; background: var(--ink); color: #fff;
+      height: 44px; padding: 0 18px; font: inherit; font-weight: 600; cursor: pointer;
+      border: 0; border-radius: 10px; background: var(--card); color: var(--card-ink);
     }
-    .controls p { margin: 0; font-size: 13px; color: var(--muted); }
+    .controls p { font-size: 13px; color: var(--muted); }
 
     .poster {
-      width: min(100% - 32px, 420px);
+      width: min(100% - 32px, 400px);
       margin: 24px auto 40px;
-      padding: 40px 28px 32px;
+      padding: 36px 28px 30px;
+      display: grid; gap: 10px; justify-items: center;
       text-align: center;
       color: var(--card-ink);
-      background:
-        radial-gradient(60% 40% at 85% 5%, rgba(255,200,218,.35), transparent 70%),
-        var(--card);
-      border-radius: 24px;
-      box-shadow: 0 20px 50px rgba(110,36,83,.3);
+      background: var(--card);
+      border-radius: 14px;
     }
-    .ornament {
-      display: flex; align-items: center; justify-content: center; gap: 12px;
-      margin-bottom: 16px; color: var(--hero-accent); font-size: 14px;
-    }
-    .ornament::before, .ornament::after { content: ""; width: 40px; height: 1px; background: currentColor; opacity: .6; }
-    h1 {
-      margin: 0; font-family: var(--serif); font-weight: 600;
-      font-size: 32px; letter-spacing: .14em; text-transform: uppercase; line-height: 1.1;
-    }
-    .tagline { margin: 8px 0 0; font-family: var(--serif); font-style: italic; font-size: 19px; color: var(--hero-accent); }
-    .qr-frame {
-      margin: 28px auto 0; width: 248px; padding: 14px;
-      background: #fff; border-radius: 16px;
-    }
+    .services { font-size: 12px; letter-spacing: .08em; color: var(--card-accent); }
+    h1 { font-family: var(--display); font-weight: 500; font-size: 38px; line-height: 1.05; }
+    .tagline { font-family: var(--display); font-style: italic; font-size: 18px; text-wrap: balance; }
+    h1 { text-wrap: balance; }
+    .qr-frame { margin-top: 16px; width: 244px; padding: 12px; background: #fff; border-radius: 10px; }
     #qr { width: 220px; height: 220px; }
     #qr img, #qr canvas { display: block; width: 100% !important; height: auto !important; }
-    .cta { margin: 22px 0 0; font-size: 13px; font-weight: 600; letter-spacing: .26em; text-transform: uppercase; }
-    .sub { margin: 6px 0 0; font-size: 14px; opacity: .75; }
-    .divider { width: 120px; height: 1px; margin: 22px auto; background: linear-gradient(90deg, transparent, var(--hero-accent), transparent); }
-    .contact { margin: 0; font-size: 13px; line-height: 1.7; opacity: .85; }
+    .cta { margin-top: 12px; font-size: 18px; font-weight: 600; }
+    .contact {
+      margin-top: 14px; padding-top: 16px; width: 100%;
+      border-top: 1px solid rgba(255, 244, 248, .25);
+      font-size: 13px; line-height: 1.7;
+    }
 
     @media print {
       @page { margin: 12mm; }
       body { background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       .controls { display: none; }
-      .poster { margin: 0 auto; box-shadow: none; width: 120mm; }
+      .poster { margin: 0 auto; width: 120mm; }
     }
   </style>
 </head>
 <body>
   <div class="controls">
-    <label for="url">Website address the QR code should open</label>
+    <label for="url">The QR code opens this address</label>
     <div class="row">
       <input id="url" type="url" spellcheck="false">
-      <button id="print" type="button">Print</button>
+      <button id="print" type="button">Print poster</button>
     </div>
-    <p>Paste the live address of the price menu once the site is online. The code updates as you type.</p>
+    <p>This is already set to the live price list. Change it only if the site moves to a new address.</p>
   </div>
 
   <div class="poster">
-    <div class="ornament" aria-hidden="true">✦</div>
+    <p class="services">Hair · Nails · Lashes · Relaxation</p>
     <h1>Janet Coker Hubs</h1>
     <p class="tagline">Luxury beauty, designed around you.</p>
-    <div class="qr-frame"><div id="qr" role="img" aria-label="QR code to the price menu"></div></div>
-    <p class="cta">Scan for our price menu</p>
-    <p class="sub">Braids · Wigs · Nails · Lashes · Relaxation</p>
-    <div class="divider"></div>
-    <p class="contact">28 John Kayode Street, Bucknor Road, Lagos<br>WhatsApp / Call 0816 059 5357 · @janetcokerhubs</p>
+    <div class="qr-frame"><div id="qr" role="img" aria-label="QR code that opens the price list"></div></div>
+    <p class="cta">Scan to see our prices</p>
+    <p class="contact">28 John Kayode Street, Bucknor Road, Lagos<br>WhatsApp or call 0816 059 5357 · @janetcokerhubs</p>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -99,15 +91,14 @@
       const input = document.getElementById("url");
       const box = document.getElementById("qr");
       const fromQuery = new URLSearchParams(location.search).get("url");
-      const isWeb = location.protocol === "http:" || location.protocol === "https:";
 
-      input.value = fromQuery || (isWeb ? new URL("./", location.href).href : "https://example.com/");
+      input.value = fromQuery || "https://osikoya17.github.io/janetcokerhub/";
 
       const qr = new QRCode(box, {
         text: input.value,
         width: 440,
         height: 440,
-        colorDark: "#4b1f4f",
+        colorDark: "#35182b",
         colorLight: "#ffffff",
         correctLevel: QRCode.CorrectLevel.M
       });

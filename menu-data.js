@@ -123,11 +123,12 @@ window.MENU = [
     featured: true,
     groups: [
       {
+        name: "Relaxation session",
         items: [
-          { name: "Relaxation Session · 15 mins", price: 25000 },
-          { name: "Relaxation Session · 30 mins", price: 40000 },
-          { name: "Relaxation Session · 45 mins", price: 55000 },
-          { name: "Relaxation Session · 1 hour", price: 70000 }
+          { name: "15 minutes", price: 25000 },
+          { name: "30 minutes", price: 40000 },
+          { name: "45 minutes", price: 55000 },
+          { name: "1 hour", price: 70000 }
         ]
       }
     ],

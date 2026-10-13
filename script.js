@@ -26,7 +26,7 @@
 
   /* ---------- Render menu ---------- */
   function render() {
-    menuEl.innerHTML = window.MENU.map((section, i) => {
+    menuEl.innerHTML = window.MENU.map((section) => {
       const groups = section.groups
         .map(
           (g) =>
@@ -50,13 +50,12 @@
       return (
         '<section class="section' + (section.featured ? " section--featured" : "") + '" id="' + section.id + '" aria-labelledby="' + section.id + '-title">' +
         '<header class="section__head">' +
-        '<span class="section__num">' + String(i + 1).padStart(2, "0") + "</span>" +
         '<h2 class="section__title" id="' + section.id + '-title">' + esc(section.title) + "</h2>" +
         (section.subtitle ? '<p class="section__subtitle">' + esc(section.subtitle) + "</p>" : "") +
         "</header>" +
         groups +
         (section.callout
-          ? '<p class="callout"><span class="callout__badge">Add-on</span>' + esc(section.callout.text) + " <strong>" + naira(section.callout.price) + "</strong>.</p>"
+          ? '<p class="callout"><span class="callout__label">Add-on</span><span>' + esc(section.callout.text) + " <strong>" + naira(section.callout.price) + "</strong></span></p>"
           : "") +
         (section.note ? '<p class="note">' + esc(section.note) + "</p>" : "") +
         "</section>"
@@ -68,7 +67,7 @@
       '<li><a class="chip chip--book" href="#book" data-target="book">Book</a></li>';
 
     document.getElementById("policy-list").innerHTML = window.POLICY.map(
-      (p) => "<details><summary>" + esc(p.title) + "</summary><p>" + esc(p.text) + "</p></details>"
+      (p) => "<div><dt>" + esc(p.title) + "</dt><dd>" + esc(p.text) + "</dd></div>"
     ).join("");
 
     document.getElementById("year").textContent = new Date().getFullYear();
@@ -128,11 +127,11 @@
   }
 
   function watchSections() {
-    const targets = [...menuEl.querySelectorAll(".section"), document.getElementById("book")];
+    const targets = [...menuEl.querySelectorAll(".section"), document.getElementById("book"), document.getElementById("policy")];
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
-          if (e.isIntersecting) setActive(e.target.id);
+          if (e.isIntersecting) setActive(e.target.id === "policy" ? "book" : e.target.id);
         });
       },
       { rootMargin: "-40% 0px -55% 0px" }
