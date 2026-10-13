@@ -136,11 +136,30 @@ window.MENU = [
   }
 ];
 
+/*
+ * "Before you book" — shown just above the booking buttons.
+ * Each group is one stage of a visit; each point is one line.
+ */
 window.POLICY = [
-  { title: "Appointments", text: "Recommended to secure your preferred time." },
-  { title: "Late arrivals", text: "Please tell us if you are running late. Extended delays may affect your appointment." },
-  { title: "Deposits", text: "A booking deposit may be required to confirm appointments." },
-  { title: "Pricing", text: "Listed prices are starting prices and may vary by length, size, design, hair volume and additional products or services." },
-  { title: "Hair", text: "Where applicable, arrive with clean, product-free hair." },
-  { title: "Cancellations", text: "Please tell us in advance if you need to reschedule or cancel." }
+  {
+    title: "Booking",
+    points: [
+      "Book ahead to get the time you want.",
+      "A deposit may be needed to confirm your appointment.",
+      "Listed prices are starting prices. Length, size, design, hair volume and extra products can change the final price."
+    ]
+  },
+  {
+    title: "On the day",
+    points: [
+      "For hair services, come with clean, product-free hair.",
+      "Running late? Message us. Long delays may affect your appointment."
+    ]
+  },
+  {
+    title: "Changing plans",
+    points: [
+      "Need to cancel or reschedule? Let us know in advance."
+    ]
+  }
 ];
