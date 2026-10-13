@@ -9,8 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #efe7dc; --ink: #2b211c; --muted: #7a6a60; --gold: #a9823f; --hero-gold: #d4b07a;
-      --card: #2b211c; --card-ink: #f6eee4; --line: #d9ccbb;
+      --bg: #fbeef3; --ink: #3b1d30; --muted: #8c6c7f; --hero-accent: #ffc8da;
+      --card: linear-gradient(155deg, #5e1f47 0%, #9b3a6c 55%, #d0779f 100%); --card-ink: #fff5f8; --line: #f0d6e0;
       --serif: "Cormorant Garamond", Georgia, serif; --sans: "Jost", system-ui, sans-serif;
     }
     * { box-sizing: border-box; }
@@ -38,23 +38,21 @@
       text-align: center;
       color: var(--card-ink);
       background:
-        radial-gradient(120% 70% at 50% 0%, rgba(212,176,122,.2), transparent 60%),
+        radial-gradient(60% 40% at 85% 5%, rgba(255,200,218,.35), transparent 70%),
         var(--card);
       border-radius: 24px;
-      box-shadow: 0 20px 50px rgba(43,33,28,.25);
+      box-shadow: 0 20px 50px rgba(110,36,83,.3);
     }
-    .monogram {
-      width: 64px; height: 64px; margin: 0 auto 16px;
-      display: grid; place-items: center; border-radius: 50%;
-      border: 1px solid var(--hero-gold); color: var(--hero-gold);
-      font-family: var(--serif); font-size: 26px;
-      box-shadow: inset 0 0 0 4px var(--card), inset 0 0 0 5px rgba(212,176,122,.35);
+    .ornament {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      margin-bottom: 16px; color: var(--hero-accent); font-size: 14px;
     }
+    .ornament::before, .ornament::after { content: ""; width: 40px; height: 1px; background: currentColor; opacity: .6; }
     h1 {
       margin: 0; font-family: var(--serif); font-weight: 600;
       font-size: 32px; letter-spacing: .14em; text-transform: uppercase; line-height: 1.1;
     }
-    .tagline { margin: 8px 0 0; font-family: var(--serif); font-style: italic; font-size: 19px; color: var(--hero-gold); }
+    .tagline { margin: 8px 0 0; font-family: var(--serif); font-style: italic; font-size: 19px; color: var(--hero-accent); }
     .qr-frame {
       margin: 28px auto 0; width: 248px; padding: 14px;
       background: #fff; border-radius: 16px;
@@ -63,7 +61,7 @@
     #qr img, #qr canvas { display: block; width: 100% !important; height: auto !important; }
     .cta { margin: 22px 0 0; font-size: 13px; font-weight: 600; letter-spacing: .26em; text-transform: uppercase; }
     .sub { margin: 6px 0 0; font-size: 14px; opacity: .75; }
-    .divider { width: 120px; height: 1px; margin: 22px auto; background: linear-gradient(90deg, transparent, var(--hero-gold), transparent); }
+    .divider { width: 120px; height: 1px; margin: 22px auto; background: linear-gradient(90deg, transparent, var(--hero-accent), transparent); }
     .contact { margin: 0; font-size: 13px; line-height: 1.7; opacity: .85; }
 
     @media print {
@@ -85,7 +83,7 @@
   </div>
 
   <div class="poster">
-    <div class="monogram" aria-hidden="true">JC</div>
+    <div class="ornament" aria-hidden="true">✦</div>
     <h1>Janet Coker Hubs</h1>
     <p class="tagline">Luxury beauty, designed around you.</p>
     <div class="qr-frame"><div id="qr" role="img" aria-label="QR code to the price menu"></div></div>
@@ -109,7 +107,7 @@
         text: input.value,
         width: 440,
         height: 440,
-        colorDark: "#2b211c",
+        colorDark: "#4b1f4f",
         colorLight: "#ffffff",
         correctLevel: QRCode.CorrectLevel.M
       });
