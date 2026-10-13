@@ -265,59 +265,19 @@ svg.stroke {
   color: var(--muted);
 }
 
-/* ============ Before you book + booking ============ */
+/* ============ Booking ============ */
 .book {
   scroll-margin-top: calc(var(--toolbar-h) + env(safe-area-inset-top, 0px));
   padding-block: 36px 8px;
   border-top: 1px solid var(--line);
   display: grid;
-  gap: 20px;
+  gap: 18px;
 }
-.book h2 {
+.book h2, .policy h2 {
   font-family: var(--display);
   font-weight: 500;
   font-size: var(--step-2);
   line-height: 1.15;
-}
-
-/* Policy: grouped by stage of a visit, full-size text in the main ink colour */
-.policy { display: grid; gap: 22px; }
-.policy__group { display: grid; gap: 8px; }
-.policy__group h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--accent);
-}
-.policy__group ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 8px;
-}
-.policy__group li {
-  position: relative;
-  padding-left: 18px;
-  font-size: 1rem;
-  line-height: 1.55;
-}
-.policy__group li::before {
-  content: "";
-  position: absolute;
-  left: 2px; top: .62em;
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-}
-
-.book__cta {
-  margin-top: 12px;
-  padding-top: 24px;
-  border-top: 1px solid var(--line);
-  font-family: var(--display);
-  font-weight: 500;
-  font-size: 1.375rem;
-  line-height: 1.2;
 }
 .book__actions { display: grid; gap: 10px; }
 .btn {
@@ -339,6 +299,17 @@ svg.stroke {
   color: var(--on-accent);
 }
 .btn--primary:hover { filter: brightness(1.08); }
+
+/* ============ Policy ============ */
+.policy {
+  padding-block: 40px 0;
+  display: grid;
+  gap: 18px;
+}
+.policy__list { display: grid; gap: 16px; }
+.policy__list div { display: grid; gap: 2px; }
+.policy__list dt { font-weight: 600; }
+.policy__list dd { color: var(--muted); font-size: .9375rem; }
 
 /* ============ Footer & floating WhatsApp ============ */
 .footer {
@@ -369,6 +340,7 @@ svg.stroke {
   .section--featured { padding: 32px 28px; }
   .book__actions { grid-template-columns: 1fr 1fr; }
   .book__actions .btn--primary { grid-column: 1 / -1; }
+  .policy__list { grid-template-columns: 1fr 1fr; column-gap: 32px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -67,7 +67,7 @@
       '<li><a class="chip chip--book" href="#book" data-target="book">Book</a></li>';
 
     document.getElementById("policy-list").innerHTML = window.POLICY.map(
-      (g) => '<div class="policy__group"><h3>' + esc(g.title) + "</h3><ul>" + g.points.map((p) => "<li>" + esc(p) + "</li>").join("") + "</ul></div>"
+      (p) => "<div><dt>" + esc(p.title) + "</dt><dd>" + esc(p.text) + "</dd></div>"
     ).join("");
 
     document.getElementById("year").textContent = new Date().getFullYear();
@@ -127,11 +127,11 @@
   }
 
   function watchSections() {
-    const targets = [...menuEl.querySelectorAll(".section"), document.getElementById("book")];
+    const targets = [...menuEl.querySelectorAll(".section"), document.getElementById("book"), document.getElementById("policy")];
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
-          if (e.isIntersecting) setActive(e.target.id);
+          if (e.isIntersecting) setActive(e.target.id === "policy" ? "book" : e.target.id);
         });
       },
       { rootMargin: "-40% 0px -55% 0px" }
