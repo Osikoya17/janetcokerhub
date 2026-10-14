@@ -91,7 +91,7 @@
       const box = document.getElementById("qr");
       const fromQuery = new URLSearchParams(location.search).get("url");
 
-      input.value = fromQuery || "https://osikoya17.github.io/janetcokerhub/";
+      input.value = fromQuery || "https://janetcokerhub.wasmer.app/";
 
       const qr = new QRCode(box, {
         text: input.value,
